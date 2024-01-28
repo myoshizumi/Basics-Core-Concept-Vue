@@ -5,6 +5,15 @@ const app = Vue.createApp({
 			name: "",
 		};
 	},
+	computed: {
+		fullname() {
+			console.log("Runnning again...");
+			if (this.name === "") {
+				return "";
+			}
+			return this.name + " " + "test";
+		},
+	},
 	methods: {
 		outputFullname() {
 			if (this.name === "") {
