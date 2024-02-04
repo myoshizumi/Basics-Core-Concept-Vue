@@ -1,55 +1,28 @@
 const app = Vue.createApp({
 	data() {
 		return {
-			currentUserInput: "",
-			message: "Vue is great!",
+			detailsAreVisible: false,
+			friends: [
+				{
+					id: "manuel",
+					name: "Manuel Lorenz",
+					phone: "0120 589 3789",
+					email: "manuel@example.com",
+				},
+				{
+					id: "julie",
+					name: "Julie Lorenz",
+					phone: "0120 539 3389",
+					email: "julie@example.com",
+				},
+			],
 		};
 	},
 	methods: {
-		saveInput(event) {
-			this.currentUserInput = event.target.value;
-		},
-		setText() {
-			// this.message = this.currentUserInput;
-			this.message = this.$refs.userText.value;
-			// console.log(this.$refs.userText);
+		toggleDetails() {
+			this.detailsAreVisible = !this.detailsAreVisible;
 		},
 	},
 });
 
 app.mount("#app");
-
-const app2 = Vue.createApp({
-	template: `
-    <p>{{ favoriteMeal }}</p>
-  `,
-	data() {
-		return {
-			favoriteMeal: "Pizza",
-		};
-	},
-});
-
-app2.mount("#app2");
-
-
-// const data = {
-// 	message: "Vue is great!",
-// 	longMessage: "Hello!! World!",
-// };
-
-// const handler = {
-// 	set(target, key, value) {
-// 		if (key === "message") {
-// 			target.longMessage = value + " World!";
-// 		}
-
-// 		target.message = value;
-// 	},
-// };
-
-// const proxy = new Proxy(data, handler);
-
-// proxy.message = "hello!!!!!";
-
-// console.log(proxy.longMessage);
